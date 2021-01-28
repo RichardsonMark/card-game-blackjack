@@ -19,6 +19,7 @@ public class DeckTest {
 
     @Test
     public void checkDeckIsComplete() {
+        deck.populateDeck();
         assertEquals(52, deck.getNumberOfCards());
     }
 
