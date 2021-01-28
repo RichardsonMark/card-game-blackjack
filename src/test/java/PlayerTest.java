@@ -25,6 +25,6 @@ public class PlayerTest {
         assertEquals(1, player.getHand().size());
         Card card = (Card) player.getHand().get(0);
         assertEquals(SuitType.HEARTS, card.getSuit());
-
+        assertEquals(RankType.QUEEN, card.getRank());
     }
 }
