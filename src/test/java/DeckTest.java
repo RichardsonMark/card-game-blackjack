@@ -17,4 +17,9 @@ public class DeckTest {
         assertEquals(0, deck.getNumberOfCards());
     }
 
+    @Test
+    public void checkDeckIsComplete() {
+        assertEquals(52, deck.getNumberOfCards());
+    }
+
 }
