@@ -27,7 +27,7 @@ public class Deck {
     }
 
     public void dealCard(Player player) {
-        this.cards.remove(0);
-        this.player.addCardToHand();
+        Card card = this.cards.remove(0);
+        player.addCardToHand(card);
     }
 }

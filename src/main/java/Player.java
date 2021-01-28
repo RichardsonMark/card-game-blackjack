@@ -6,4 +6,14 @@ public class Player {
     public Player() {
         this.hand = new ArrayList<>();
     }
+
+    public ArrayList getHand(){
+        return this.hand;
+    }
+
+    public void addCardToHand(Card card){
+        this.hand.add(card);
+
+    }
+
 }
