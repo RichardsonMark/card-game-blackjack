@@ -28,6 +28,5 @@ public class Deck {
 
     public Card dealCard() {
         return this.cards.remove(0);
-//        player.addCardToHand(card);
     }
 }

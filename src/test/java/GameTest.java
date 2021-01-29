@@ -24,10 +24,8 @@ public class GameTest {
         game = new Game(deck, players);
     }
 
-
     @Test
     public void canAddPlayer(){
-//        game.addPlayer(player1);
         assertEquals(2, game.getNumPlayers());
     }
 
@@ -35,8 +33,6 @@ public class GameTest {
     public void canDealCardsToPlayers(){
         game.addPlayer(player1);
         Card card = game.dealCardsToPlayers(deck);
-//        assertEquals(1, player1.getHand().size());
-//        assertEquals(1, player2.getHand().size());
         assertNotNull(card);
         assertEquals(51, deck.getNumberOfCards());
     }

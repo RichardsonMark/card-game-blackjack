@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class DeckTest {
 
@@ -27,12 +28,11 @@ public class DeckTest {
     }
 
     @Test
-    public void canDealCard() {
+    public void canGetACard() {
         deck.populateDeck();
         deck.shuffleDeck();
-        deck.dealCard();
+        assertNotNull(deck.dealCard());
         assertEquals(51, deck.getNumberOfCards());
-//        assertEquals(1, player.getHand().size());
     }
 
 }
