@@ -18,10 +18,10 @@ public class Game {
         return this.players.size();
     }
 
-    public void dealCardsToPlayers(){
-        for (Player player : players) {
-            deck.dealCard(player);
-        }
+    public Card dealCardsToPlayers(Deck deck){
+//        for (Player player : players) {
+            return deck.dealCard();
+//        }
     }
 
 }

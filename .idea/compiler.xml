@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="card_game_lab" />
         <module name="card-game-lab" />
+        <module name="card-game-blackjack" />
       </profile>
     </annotationProcessing>
   </component>

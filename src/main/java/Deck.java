@@ -26,8 +26,8 @@ public class Deck {
         Collections.shuffle(this.cards);
     }
 
-    public void dealCard(Player player) {
-        Card card = this.cards.remove(0);
-        player.addCardToHand(card);
+    public Card dealCard() {
+        return this.cards.remove(0);
+//        player.addCardToHand(card);
     }
 }

@@ -30,7 +30,7 @@ public class DeckTest {
     public void canDealCard() {
         deck.populateDeck();
         deck.shuffleDeck();
-        deck.dealCard(player);
+        deck.dealCard();
         assertEquals(51, deck.getNumberOfCards());
         assertEquals(1, player.getHand().size());
     }
