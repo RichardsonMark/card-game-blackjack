@@ -17,18 +17,18 @@ public class GameTest {
     public void before(){
         deck = new Deck();
         player1 = new Player();
-        player2 = new Player();
+//        player2 = new Player();
         dealer = new Dealer();
         deck.populateDeck();
         ArrayList<Player> players = new ArrayList<>();
         players.add(player1);
-        players.add(player2);
+//        players.add(player2);
         game = new Game(deck, players, dealer);
     }
 
     @Test
     public void canAddPlayer(){
-        assertEquals(2, game.getNumPlayers());
+        assertEquals(1, game.getNumPlayers());
     }
 
     @Test
@@ -59,12 +59,13 @@ public class GameTest {
         assertEquals("Player wins!", game.highestHandWinner());
     }
 
-//    @Test
-//    public void checkWhoWinsHighestHandRealGame(){
-//        deck.populateDeck();
-//        deck.shuffleDeck();
-//        game.play();
-//    }
+    @Test
+    public void checkWhoWinsHighestHandRealGame(){
+        deck.populateDeck();
+        deck.shuffleDeck();
+        game.play();
+        assertTrue(game.highestHandWinner().equals("Dealer wins :(") || game.highestHandWinner().equals("Player wins!"));
+    }
 
 
     // commenting out logic of old game
