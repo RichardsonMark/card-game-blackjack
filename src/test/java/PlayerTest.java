@@ -22,9 +22,17 @@ public class PlayerTest {
     @Test
     public void canAddCardToHand(){
         player.addCardToHand(card);
-        assertEquals(1, player.getHand().size());
+        assertEquals(1, player.numberOfCardsInHand());
         Card card = (Card) player.getHand().get(0);
         assertEquals(SuitType.HEARTS, card.getSuit());
         assertEquals(RankType.QUEEN, card.getRank());
     }
+
+    @Test
+    public void hasHandValue(){
+        player.addCardToHand(card);
+        assertEquals(10, player.getHandValue());
+    }
+
+
 }

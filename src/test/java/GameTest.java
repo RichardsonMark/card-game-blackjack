@@ -1,8 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 public class GameTest {
 
@@ -13,18 +14,21 @@ public class GameTest {
 
     @Before
     public void before(){
-        game = new Game();
         deck = new Deck();
         player1 = new Player();
         player2 = new Player();
         deck.populateDeck();
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(player1);
+        players.add(player2);
+        game = new Game(deck, players);
     }
 
 
     @Test
     public void canAddPlayer(){
-        game.addPlayer(player1);
-        assertEquals(1, game.getNumPlayers());
+//        game.addPlayer(player1);
+        assertEquals(2, game.getNumPlayers());
     }
 
     @Test
@@ -35,6 +39,28 @@ public class GameTest {
 //        assertEquals(1, player2.getHand().size());
         assertNotNull(card);
         assertEquals(51, deck.getNumberOfCards());
+    }
+
+    @Test
+    public void canPlay(){
+        game.play();
+        assertEquals(1, player1.numberOfCardsInHand());
+        assertEquals(1, player2.numberOfCardsInHand());
+        assertEquals(50, deck.getNumberOfCards());
+    }
+
+    @Test
+    public void player1Wins(){
+        player1.addCardToHand(new Card(SuitType.DIAMONDS, RankType.KING));
+        player2.addCardToHand(new Card(SuitType.HEARTS, RankType.NINE));
+        assertEquals(player1, game.checkWinner());
+    }
+
+    @Test
+    public void drawReturnsNull(){
+        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.FIVE));
+        player2.addCardToHand(new Card(SuitType.SPADES, RankType.FIVE));
+        assertNull(game.checkWinner());
     }
 
 }
