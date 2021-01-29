@@ -8,8 +8,27 @@ public class Dealer {
         this.dealerHand = new ArrayList<>();
     }
 
-
     public Card deal(Deck deck) {
         return deck.dealCard();
+    }
+
+    public int numberOfCardsInDealersHand(){
+        return this.dealerHand.size();
+    }
+
+    public void addCardsToDealersHand(Card card){
+        this.dealerHand.add(card);
+    }
+
+    public void removeAllCardsFromDealersHand(){
+        this.dealerHand.clear();
+    }
+
+    public int checkDealerScore(){
+        int total = 0;
+        for (Card card : this.dealerHand){
+            total += card.getCardValue();
+        }
+        return total;
     }
 }
