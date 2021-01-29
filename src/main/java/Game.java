@@ -27,6 +27,7 @@ public class Game {
     }
 
     public void play() {
+        deck.shuffleDeck();
         Card dealerCard1 = dealer.deal(deck);
         dealer.addCardsToDealersHand(dealerCard1);
         Card dealerCard2 = dealer.deal(deck);
@@ -39,29 +40,45 @@ public class Game {
         }
     }
 
-    public Player checkWinner() {
-        if (checkDraw()) {
-            return null;
-        }
-        Player winner = players.get(0);
+    public String highestHandWinner(){
+        String winner ="";
         for (Player player : this.players) {
-            if (player.getHandValue() > winner.getHandValue()) {
-                winner = player;
+            if (player.getHandValue() > dealer.getDealerHandValue()) {
+                String winner1 = "Player wins!";
+                return winner1;
+            }else{
+                String winner2 = "Dealer wins :(";
+                return winner2;
             }
         }
         return winner;
     }
 
-    public boolean checkDraw() {
-        boolean draw = false;
-        for (Player player : players) {
-            if (player.getHandValue() == players.get(0).getHandValue()) {
-                draw = true;
-            } else {
-                draw = false;
-            }
-        }
-        return draw;
-    }
+    // commenting out methods of old game
+
+//    public Player checkWinner() {
+//        if (checkDraw()) {
+//            return null;
+//        }
+//        Player winner = players.get(0);
+//        for (Player player : this.players) {
+//            if (player.getHandValue() > winner.getHandValue()) {
+//                winner = player;
+//            }
+//        }
+//        return winner;
+//    }
+//
+//    public boolean checkDraw() {
+//        boolean draw = false;
+//        for (Player player : players) {
+//            if (player.getHandValue() == players.get(0).getHandValue()) {
+//                draw = true;
+//            } else {
+//                draw = false;
+//            }
+//        }
+//        return draw;
+//    }
 
 }

@@ -24,7 +24,7 @@ public class Dealer {
         this.dealerHand.clear();
     }
 
-    public int checkDealerScore(){
+    public int getDealerHandValue(){
         int total = 0;
         for (Card card : this.dealerHand){
             total += card.getCardValue();

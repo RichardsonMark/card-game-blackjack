@@ -53,6 +53,6 @@ public class DealerTest {
     public void canCheckValueOfDealersHand(){
         dealer.addCardsToDealersHand(card);
         assertEquals(1, dealer.numberOfCardsInDealersHand());
-        assertEquals(2, dealer.checkDealerScore());
+        assertEquals(2, dealer.getDealerHandValue());
     }
 }

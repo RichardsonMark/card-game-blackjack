@@ -43,23 +43,43 @@ public class GameTest {
     public void canPlay(){
         game.play();
         assertEquals(2, player1.numberOfCardsInHand());
-        assertEquals(2, player2.numberOfCardsInHand());
+//        assertEquals(2, player2.numberOfCardsInHand());
         assertEquals(2, dealer.numberOfCardsInDealersHand());
-        assertEquals(46, deck.getNumberOfCards());
+        assertEquals(48, deck.getNumberOfCards());
     }
 
     @Test
-    public void player1Wins(){
+    public void checkWhoWinsHighestHandTestGame(){
+        deck.populateDeck();
+        deck.shuffleDeck();
         player1.addCardToHand(new Card(SuitType.DIAMONDS, RankType.KING));
-        player2.addCardToHand(new Card(SuitType.HEARTS, RankType.NINE));
-        assertEquals(player1, game.checkWinner());
+        dealer.addCardsToDealersHand(new Card(SuitType.HEARTS, RankType.NINE));
+        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.KING));
+        dealer.addCardsToDealersHand(new Card(SuitType.SPADES, RankType.NINE));
+        assertEquals("Player wins!", game.highestHandWinner());
     }
 
-    @Test
-    public void drawReturnsNull(){
-        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.FIVE));
-        player2.addCardToHand(new Card(SuitType.SPADES, RankType.FIVE));
-        assertNull(game.checkWinner());
-    }
+//    @Test
+//    public void checkWhoWinsHighestHandRealGame(){
+//        deck.populateDeck();
+//        deck.shuffleDeck();
+//        game.play();
+//    }
+
+
+    // commenting out logic of old game
+//    @Test
+//    public void player1Wins(){
+//        player1.addCardToHand(new Card(SuitType.DIAMONDS, RankType.KING));
+//        player2.addCardToHand(new Card(SuitType.HEARTS, RankType.NINE));
+//        assertEquals(player1, game.checkWinner());
+//    }
+//
+//    @Test
+//    public void drawReturnsNull(){
+//        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.FIVE));
+//        player2.addCardToHand(new Card(SuitType.SPADES, RankType.FIVE));
+//        assertNull(game.checkWinner());
+//    }
 
 }
