@@ -4,10 +4,12 @@ public class Game {
 
     private Deck deck;
     private ArrayList<Player> players;
+    private Dealer dealer;
 
-    public Game(Deck deck, ArrayList<Player> players){
+    public Game(Deck deck, ArrayList<Player> players, Dealer dealer){
         this.deck = deck;
         this.players = players;
+        this.dealer = dealer;
     }
 
     public void addPlayer(Player player){
@@ -25,9 +27,15 @@ public class Game {
     }
 
     public void play() {
+        Card dealerCard1 = dealer.deal(deck);
+        dealer.addCardsToDealersHand(dealerCard1);
+        Card dealerCard2 = dealer.deal(deck);
+        dealer.addCardsToDealersHand(dealerCard2);
         for (Player player : this.players) {
             Card card = dealCardsToPlayers(deck);
             player.addCardToHand(card);
+            Card card2 = dealCardsToPlayers(deck);
+            player.addCardToHand(card2);
         }
     }
 

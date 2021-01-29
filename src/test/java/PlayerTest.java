@@ -29,7 +29,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void hasHandValue(){
+    public void canCheckHandValue(){
         player.addCardToHand(card);
         assertEquals(10, player.getHandValue());
     }

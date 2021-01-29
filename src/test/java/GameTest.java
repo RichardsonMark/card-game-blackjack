@@ -11,17 +11,19 @@ public class GameTest {
     Deck deck;
     Player player1;
     Player player2;
+    Dealer dealer;
 
     @Before
     public void before(){
         deck = new Deck();
         player1 = new Player();
         player2 = new Player();
+        dealer = new Dealer();
         deck.populateDeck();
         ArrayList<Player> players = new ArrayList<>();
         players.add(player1);
         players.add(player2);
-        game = new Game(deck, players);
+        game = new Game(deck, players, dealer);
     }
 
     @Test
@@ -40,9 +42,10 @@ public class GameTest {
     @Test
     public void canPlay(){
         game.play();
-        assertEquals(1, player1.numberOfCardsInHand());
-        assertEquals(1, player2.numberOfCardsInHand());
-        assertEquals(50, deck.getNumberOfCards());
+        assertEquals(2, player1.numberOfCardsInHand());
+        assertEquals(2, player2.numberOfCardsInHand());
+        assertEquals(2, dealer.numberOfCardsInDealersHand());
+        assertEquals(46, deck.getNumberOfCards());
     }
 
     @Test
