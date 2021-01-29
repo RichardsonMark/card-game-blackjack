@@ -26,7 +26,19 @@ public class Player {
             total += card.getCardValue();
         }
         return total;
+    }
 
+    public int makeAceHigh(){
+        if(this.getHandValue() <= 11){
+         int total = 0;
+         for(Card card : this.hand){
+             if (card.getRank() == RankType.ACE){
+                 total +=1;
+             }
+         }
+         return total * 10 + this.getHandValue();
+        }
+        return this.getHandValue();
     }
 
 }

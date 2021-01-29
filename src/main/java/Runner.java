@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Deck deck = new Deck();
         Player player = new Player();
         Dealer dealer = new Dealer();
@@ -12,8 +13,11 @@ public class Runner {
         Game game = new Game(deck, players, dealer);
         System.out.println("Let's play some Blackjack");
         game.play();
+        TimeUnit.SECONDS.sleep(1);
         System.out.println("Dealer is dealing...");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println("Game in progress...");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println(game.highestHandWinner());
     }
 
