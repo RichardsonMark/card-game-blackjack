@@ -10,7 +10,7 @@ public class GameTest {
     Game game;
     Deck deck;
     Player player1;
-    Player player2;
+//    Player player2;
     Dealer dealer;
 
     @Before
@@ -56,7 +56,7 @@ public class GameTest {
         dealer.addCardsToDealersHand(new Card(SuitType.HEARTS, RankType.NINE));
         player1.addCardToHand(new Card(SuitType.CLUBS, RankType.KING));
         dealer.addCardsToDealersHand(new Card(SuitType.SPADES, RankType.NINE));
-        assertEquals("Player wins!", game.highestHandWinner());
+        assertEquals("Player wins with a hand worth " + player1.getHandValue(), game.highestHandWinner());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class GameTest {
         deck.populateDeck();
         deck.shuffleDeck();
         game.play();
-        assertTrue(game.highestHandWinner().equals("Dealer wins :(") || game.highestHandWinner().equals("Player wins!"));
+        assertTrue(game.highestHandWinner().equals("Dealer wins with a hand worth " + dealer.getDealerHandValue()) || game.highestHandWinner().equals("Player wins with a hand worth " + player1.getHandValue()));
     }
 
 
