@@ -55,4 +55,11 @@ public class DealerTest {
         assertEquals(1, dealer.numberOfCardsInDealersHand());
         assertEquals(2, dealer.getDealerHandValue());
     }
+
+    @Test
+    public void canMakeDealerAceHigh(){
+        dealer.addCardsToDealersHand(card);
+        dealer.addCardsToDealersHand(card2);
+        assertEquals(13, dealer.makeDealerAceHigh());
+    }
 }

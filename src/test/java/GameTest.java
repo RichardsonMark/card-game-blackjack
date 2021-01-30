@@ -76,7 +76,7 @@ public class GameTest {
         // asserting with makeAceHigh to make sure Ace goes high as expected
         assertEquals(21, player1.makeAceHigh());
         // asserting with makeAceHigh added to BlackJack test
-        assertEquals(true, game.checkForBlackjack(player1));
+        assertEquals("Blackjack!!", game.checkForBlackjack());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class GameTest {
         // asserting with makeAceHigh to make sure doesn't goes high (no Ace in hand)
         assertEquals(20, player1.makeAceHigh());
         // asserting with makeAceHigh added to BlackJack test (no Ace in hand)
-        assertEquals(false, game.checkForBlackjack(player1));
+        assertEquals("", game.checkForBlackjack());
     }
 
 

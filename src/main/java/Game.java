@@ -43,23 +43,29 @@ public class Game {
     public String highestHandWinner(){
         String winner ="";
         for (Player player : this.players) {
-            if (player.makeAceHigh() > dealer.getDealerHandValue()) {
+            if (player.makeAceHigh() > dealer.makeDealerAceHigh()) {
                 String winner1 = "Player wins with a hand worth " + player.makeAceHigh();
                 return winner1;
             }else{
-                String winner2 = "Dealer wins with a hand worth " + dealer.getDealerHandValue();
+                String winner2 = "Dealer wins with a hand worth " + dealer.makeDealerAceHigh();
                 return winner2;
             }
         }
         return winner;
     }
 
-
-    public boolean checkForBlackjack(Player player){
-        if(player.makeAceHigh() == 21){
-            return true;
+    public String checkForBlackjack() {
+        String notBlackjack = "No Blackjack this time.";
+        for (Player player : this.players) {
+            if (player.makeAceHigh() == 21 || dealer.makeDealerAceHigh() == 21) {
+                String blackjack1 = "Blackjack!!";
+                return blackjack1;
+            } else {
+                String noBlackJack = "";
+                return noBlackJack;
+            }
         }
-        return false;
+        return notBlackjack;
     }
 
 

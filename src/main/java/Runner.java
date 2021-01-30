@@ -19,6 +19,7 @@ public class Runner {
         System.out.println("Game in progress...");
 //        TimeUnit.SECONDS.sleep(1);
         System.out.println(game.highestHandWinner());
+        System.out.println(game.checkForBlackjack());
     }
 
 }
