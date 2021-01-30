@@ -43,14 +43,14 @@ public class PlayerTest {
     public void canMakeAceHigh(){
         player.addCardToHand(card);
         player.addCardToHand(card2);
-        assertEquals(21, player.makeAceHigh());
+        assertEquals(21, player.playerHandValueAbleToMakeAceHigh());
     }
 
     @Test
     public void cannotGoBustWithTwoAces(){
         player.addCardToHand(card3);
         player.addCardToHand(card2);
-        assertEquals(12, player.makeAceHigh());
+        assertEquals(12, player.playerHandValueAbleToMakeAceHigh());
     }
 
 

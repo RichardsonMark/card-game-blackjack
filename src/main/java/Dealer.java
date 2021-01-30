@@ -34,7 +34,7 @@ public class Dealer {
         return total;
     }
 
-    public int makeDealerAceHigh(){
+    public int dealerHandValueAbleToMakeAceHigh(){
         int totalHandValue = this.getDealerHandValue();
         if(totalHandValue > 2 && totalHandValue <= 11){
             int total = 0;

@@ -63,13 +63,13 @@ public class DealerTest {
     public void canMakeDealerAceHigh(){
         dealer.addCardsToDealersHand(card);
         dealer.addCardsToDealersHand(card2);
-        assertEquals(13, dealer.makeDealerAceHigh());
+        assertEquals(13, dealer.dealerHandValueAbleToMakeAceHigh());
     }
 
     @Test
     public void dealerCannotGoBustWithTwoAces(){
         dealer.addCardsToDealersHand(card3);
         dealer.addCardsToDealersHand(card2);
-        assertEquals(12, dealer.makeDealerAceHigh());
+        assertEquals(12, dealer.dealerHandValueAbleToMakeAceHigh());
     }
 }

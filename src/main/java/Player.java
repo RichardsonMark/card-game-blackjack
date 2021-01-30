@@ -29,7 +29,7 @@ public class Player {
         return total;
     }
 
-    public int makeAceHigh(){
+    public int playerHandValueAbleToMakeAceHigh(){
         int totalHandValue = this.getHandValue();
         if(totalHandValue > 2 && totalHandValue <= 11){
          int total = 0;
