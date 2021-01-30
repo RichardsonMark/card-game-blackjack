@@ -10,6 +10,7 @@ public class DealerTest {
     Deck deck;
     Card card;
     Card card2;
+    Card card3;
 
     @Before
     public void before(){
@@ -17,6 +18,8 @@ public class DealerTest {
         deck = new Deck();
         card = new Card(SuitType.SPADES, RankType.TWO);
         card2 = new Card(SuitType.SPADES, RankType.ACE);
+        card3 = new Card(SuitType.CLUBS, RankType.ACE);
+
     }
 
     @Test
@@ -61,5 +64,12 @@ public class DealerTest {
         dealer.addCardsToDealersHand(card);
         dealer.addCardsToDealersHand(card2);
         assertEquals(13, dealer.makeDealerAceHigh());
+    }
+
+    @Test
+    public void dealerCannotGoBustWithTwoAces(){
+        dealer.addCardsToDealersHand(card3);
+        dealer.addCardsToDealersHand(card2);
+        assertEquals(12, dealer.makeDealerAceHigh());
     }
 }

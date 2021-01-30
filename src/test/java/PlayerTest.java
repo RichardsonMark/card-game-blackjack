@@ -8,12 +8,15 @@ public class PlayerTest {
     Player player;
     Card card;
     Card card2;
+    Card card3;
 
     @Before
     public void before(){
         player = new Player();
         card = new Card(SuitType.HEARTS, RankType.QUEEN);
         card2 = new Card(SuitType.SPADES, RankType.ACE);
+        card3 = new Card(SuitType.CLUBS, RankType.ACE);
+
     }
 
     @Test
@@ -41,6 +44,13 @@ public class PlayerTest {
         player.addCardToHand(card);
         player.addCardToHand(card2);
         assertEquals(21, player.makeAceHigh());
+    }
+
+    @Test
+    public void cannotGoBustWithTwoAces(){
+        player.addCardToHand(card3);
+        player.addCardToHand(card2);
+        assertEquals(12, player.makeAceHigh());
     }
 
 //    @Test

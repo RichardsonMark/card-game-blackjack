@@ -31,7 +31,7 @@ public class Player {
 
     public int makeAceHigh(){
         int totalHandValue = this.getHandValue();
-        if(totalHandValue <= 11){
+        if(totalHandValue > 2 && totalHandValue <= 11){
          int total = 0;
          for(Card card : this.hand){
              if (card.getRank() == RankType.ACE){
@@ -39,6 +39,9 @@ public class Player {
              }
          }
          return total * 10 + totalHandValue;
+        }
+        else if(totalHandValue == 2){
+            return 10 + totalHandValue;
         }
         return this.getHandValue();
     }

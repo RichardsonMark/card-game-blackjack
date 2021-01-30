@@ -36,7 +36,7 @@ public class Dealer {
 
     public int makeDealerAceHigh(){
         int totalHandValue = this.getDealerHandValue();
-        if(totalHandValue <= 11){
+        if(totalHandValue > 2 && totalHandValue <= 11){
             int total = 0;
             for(Card card : this.dealerHand){
                 if (card.getRank() == RankType.ACE){
@@ -44,6 +44,9 @@ public class Dealer {
                 }
             }
             return total * 10 + totalHandValue;
+        }
+        else if(totalHandValue == 2){
+            return 10 + totalHandValue;
         }
         return this.getDealerHandValue();
     }
