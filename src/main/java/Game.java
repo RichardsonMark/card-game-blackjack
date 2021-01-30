@@ -54,6 +54,16 @@ public class Game {
         return winner;
     }
 
+
+    public boolean checkForBlackjack(Player player){
+        if(player.makeAceHigh() == 21){
+            return true;
+        }
+        return false;
+    }
+
+
+
     // commenting out methods of old game
 
 //    public Player checkWinner() {

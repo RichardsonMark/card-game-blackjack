@@ -37,7 +37,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void canAcesHigh(){
+    public void canMakeAceHigh(){
         player.addCardToHand(card);
         player.addCardToHand(card2);
         assertEquals(21, player.makeAceHigh());

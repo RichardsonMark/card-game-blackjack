@@ -67,6 +67,30 @@ public class GameTest {
         assertTrue(game.highestHandWinner().equals("Dealer wins with a hand worth " + dealer.getDealerHandValue()) || game.highestHandWinner().equals("Player wins with a hand worth " + player1.getHandValue()));
     }
 
+    @Test
+    public void checkForBlackjackIsBlackjack(){
+        player1.addCardToHand(new Card(SuitType.DIAMONDS, RankType.KING));
+        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.ACE));
+        // asserting with getHandValue to make sure 11 as expected
+        assertEquals(11, player1.getHandValue());
+        // asserting with makeAceHigh to make sure Ace goes high as expected
+        assertEquals(21, player1.makeAceHigh());
+        // asserting with makeAceHigh added to BlackJack test
+        assertEquals(true, game.checkForBlackjack(player1));
+    }
+
+    @Test
+    public void checkForBlackjackIsNotBlackjack(){
+        player1.addCardToHand(new Card(SuitType.DIAMONDS, RankType.KING));
+        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.QUEEN));
+        // asserting with getHandValue to make sure 11 as expected
+        assertEquals(20, player1.getHandValue());
+        // asserting with makeAceHigh to make sure doesn't goes high (no Ace in hand)
+        assertEquals(20, player1.makeAceHigh());
+        // asserting with makeAceHigh added to BlackJack test (no Ace in hand)
+        assertEquals(false, game.checkForBlackjack(player1));
+    }
+
 
     // commenting out logic of old game
 //    @Test
