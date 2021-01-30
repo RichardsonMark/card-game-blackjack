@@ -43,7 +43,7 @@ public class Game {
     public String highestHandWinner(){
         String winner ="";
         for (Player player : this.players) {
-            if (player.getHandValue() > dealer.getDealerHandValue()) {
+            if (player.makeAceHigh() > dealer.getDealerHandValue()) {
                 String winner1 = "Player wins with a hand worth " + player.makeAceHigh();
                 return winner1;
             }else{
