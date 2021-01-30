@@ -13,6 +13,7 @@ public class Player {
 
     public void addCardToHand(Card card){
         this.hand.add(card);
+        System.out.println("Player card drawn. " + card.getRank() + " of " + card.getSuit() + " added to hand.");
 
     }
 
@@ -41,5 +42,6 @@ public class Player {
         }
         return this.getHandValue();
     }
+
 
 }

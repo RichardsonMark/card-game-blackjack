@@ -18,6 +18,8 @@ public class Dealer {
 
     public void addCardsToDealersHand(Card card){
         this.dealerHand.add(card);
+        System.out.println("Dealer card drawn. " + card.getRank() + " of " + card.getSuit() + " added to hand.");
+
     }
 
     public void removeAllCardsFromDealersHand(){

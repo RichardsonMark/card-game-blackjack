@@ -44,7 +44,7 @@ public class Game {
         String winner ="";
         for (Player player : this.players) {
             if (player.getHandValue() > dealer.getDealerHandValue()) {
-                String winner1 = "Player wins with a hand worth " + player.getHandValue();
+                String winner1 = "Player wins with a hand worth " + player.makeAceHigh();
                 return winner1;
             }else{
                 String winner2 = "Dealer wins with a hand worth " + dealer.getDealerHandValue();

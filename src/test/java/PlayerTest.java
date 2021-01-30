@@ -42,4 +42,15 @@ public class PlayerTest {
         player.addCardToHand(card2);
         assertEquals(21, player.makeAceHigh());
     }
+
+//    @Test
+//    public void checkCardsInHand(){
+//        player.addCardToHand(card);
+////        player.addCardToHand(card2);
+//        assertEquals(RankType.QUEEN, card.getRank());
+//        assertEquals(SuitType.HEARTS, card.getSuit());
+//        assertEquals(RankType.QUEEN, ());
+//    }
+
+
 }

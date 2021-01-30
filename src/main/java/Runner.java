@@ -12,12 +12,12 @@ public class Runner {
         players.add(player);
         Game game = new Game(deck, players, dealer);
         System.out.println("Let's play some Blackjack");
-        game.play();
-        TimeUnit.SECONDS.sleep(1);
+//        TimeUnit.SECONDS.sleep(1);
         System.out.println("Dealer is dealing...");
-        TimeUnit.SECONDS.sleep(1);
+        game.play();
+//        TimeUnit.SECONDS.sleep(1);
         System.out.println("Game in progress...");
-        TimeUnit.SECONDS.sleep(1);
+//        TimeUnit.SECONDS.sleep(1);
         System.out.println(game.highestHandWinner());
     }
 
