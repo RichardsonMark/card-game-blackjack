@@ -42,6 +42,8 @@ public class Game {
 
     public String highestHandWinner(){
         String winner ="";
+        playerDecidesIfShouldTwist();
+        dealerDecidesIfShouldTwist();
         for (Player player : this.players) {
             if (player.makeAceHigh() > dealer.makeDealerAceHigh()) {
                 String winner1 = "Player wins with a hand worth " + player.makeAceHigh();
@@ -68,33 +70,24 @@ public class Game {
         return notBlackjack;
     }
 
+    public void playerDecidesIfShouldTwist(){
+        for (Player player : players){
+            if(player.makeAceHigh() < 16) {
+                Card card3 = dealer.deal(deck);
+                System.out.println("Player twists...");
+                player.addCardToHand(card3);
+            }
+        }
+    }
 
+    public void dealerDecidesIfShouldTwist(){
+        if (dealer.makeDealerAceHigh() < 16){
+            Card card = dealer.deal(deck);
+            System.out.println("Dealer twists...");
+            dealer.addCardsToDealersHand(card);
+        }
+    }
 
-    // commenting out methods of old game
-
-//    public Player checkWinner() {
-//        if (checkDraw()) {
-//            return null;
-//        }
-//        Player winner = players.get(0);
-//        for (Player player : this.players) {
-//            if (player.getHandValue() > winner.getHandValue()) {
-//                winner = player;
-//            }
-//        }
-//        return winner;
-//    }
-//
-//    public boolean checkDraw() {
-//        boolean draw = false;
-//        for (Player player : players) {
-//            if (player.getHandValue() == players.get(0).getHandValue()) {
-//                draw = true;
-//            } else {
-//                draw = false;
-//            }
-//        }
-//        return draw;
-//    }
+    
 
 }

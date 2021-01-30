@@ -53,14 +53,6 @@ public class PlayerTest {
         assertEquals(12, player.makeAceHigh());
     }
 
-//    @Test
-//    public void checkCardsInHand(){
-//        player.addCardToHand(card);
-////        player.addCardToHand(card2);
-//        assertEquals(RankType.QUEEN, card.getRank());
-//        assertEquals(SuitType.HEARTS, card.getSuit());
-//        assertEquals(RankType.QUEEN, ());
-//    }
 
 
 }

@@ -64,7 +64,7 @@ public class GameTest {
         deck.populateDeck();
         deck.shuffleDeck();
         game.play();
-        assertTrue(game.highestHandWinner().equals("Dealer wins with a hand worth " + dealer.getDealerHandValue()) || game.highestHandWinner().equals("Player wins with a hand worth " + player1.makeAceHigh()));
+        assertTrue(game.highestHandWinner().equals("Dealer wins with a hand worth " + dealer.makeDealerAceHigh()) || game.highestHandWinner().equals("Player wins with a hand worth " + player1.makeAceHigh()));
     }
 
     @Test
@@ -91,20 +91,25 @@ public class GameTest {
         assertEquals("", game.checkForBlackjack());
     }
 
+    @Test
+    public void CanPlayerTwist(){
+        deck.populateDeck();
+        deck.shuffleDeck();
+        game.play();
+        game.playerDecidesIfShouldTwist();
+        Integer playerTwistedNumCards = player1.numberOfCardsInHand();
+        assertTrue(playerTwistedNumCards.equals(2) || playerTwistedNumCards.equals(3));
+    }
 
-    // commenting out logic of old game
-//    @Test
-//    public void player1Wins(){
-//        player1.addCardToHand(new Card(SuitType.DIAMONDS, RankType.KING));
-//        player2.addCardToHand(new Card(SuitType.HEARTS, RankType.NINE));
-//        assertEquals(player1, game.checkWinner());
-//    }
-//
-//    @Test
-//    public void drawReturnsNull(){
-//        player1.addCardToHand(new Card(SuitType.CLUBS, RankType.FIVE));
-//        player2.addCardToHand(new Card(SuitType.SPADES, RankType.FIVE));
-//        assertNull(game.checkWinner());
-//    }
+    @Test
+    public void CanDealerTwist(){
+        deck.populateDeck();
+        deck.shuffleDeck();
+        game.play();
+        game.dealerDecidesIfShouldTwist();
+        Integer dealerTwistedNumCards = dealer.numberOfCardsInDealersHand();
+        assertTrue(dealerTwistedNumCards.equals(2) || dealerTwistedNumCards.equals(3));
+    }
+
 
 }
