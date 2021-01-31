@@ -65,7 +65,7 @@ public class GameTest {
         player1.addCardToHand(card2);
         dealer.addCardsToDealersHand(card3);
         dealer.addCardsToDealersHand(card4);
-        assertEquals("Player wins with a hand worth " + player1.playerHandValueAbleToMakeAceHigh(), game.highestHandWinner());
+        assertEquals(player1 + " wins with a hand worth " + player1.playerHandValueAbleToMakeAceHigh(), game.highestHandWinner());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class GameTest {
         deck.populateDeck();
         deck.shuffleDeck();
         game.play();
-        assertTrue(game.highestHandWinner().equals("Dealer wins with a hand worth " + dealer.dealerHandValueAbleToMakeAceHigh()) || game.highestHandWinner().equals("Player wins with a hand worth " + player1.playerHandValueAbleToMakeAceHigh()));
+        assertTrue(game.highestHandWinner().equals("Dealer wins with a hand worth " + dealer.dealerHandValueAbleToMakeAceHigh()) || game.highestHandWinner().equals(player1 + " wins with a hand worth " + player1.playerHandValueAbleToMakeAceHigh())  || game.highestHandWinner().equals("It's a draw!") || game.highestHandWinner().equals("Dealer is bust, player wins!!") || game.highestHandWinner().equals(player1 + " is bust :("));
     }
 
     @Test

@@ -34,6 +34,10 @@ public class Dealer {
         return total;
     }
 
+    /**
+     *
+     * @return evolution of getDealerHandValue, making ace high. returns int with total
+     */
     public int dealerHandValueAbleToMakeAceHigh(){
         int totalHandValue = this.getDealerHandValue();
         if(totalHandValue > 2 && totalHandValue <= 11){

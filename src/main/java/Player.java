@@ -13,7 +13,7 @@ public class Player {
 
     public void addCardToHand(Card card){
         this.hand.add(card);
-        System.out.println("Player card drawn. " + card.getRank() + " of " + card.getSuit() + " added to hand.");
+        System.out.println(Player.this + " card drawn. " + card.getRank() + " of " + card.getSuit() + " added to hand.");
 
     }
 
@@ -29,6 +29,10 @@ public class Player {
         return total;
     }
 
+    /**
+     *
+     * @return evolution of getHandValue, making ace high. returns int with total
+     */
     public int playerHandValueAbleToMakeAceHigh(){
         int totalHandValue = this.getHandValue();
         if(totalHandValue > 2 && totalHandValue <= 11){

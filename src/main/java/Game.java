@@ -30,6 +30,10 @@ public class Game {
 //        }
     }
 
+    /**
+     *
+     * @return starts a game in motion
+     */
     public void play() {
         deck.shuffleDeck();
         Card dealerCard1 = dealer.deal(deck);
@@ -44,17 +48,19 @@ public class Game {
         }
     }
 
+    /**
+     *
+     * @return returns a string with the winners info
+     */
     public String highestHandWinner(){
         String winner ="";
         playerDecidesIfShouldTwist();
         dealerDecidesIfShouldTwist();
         playerDecidesIfShouldStick();
         dealerDecidesIfShouldStick();
-//        checkIfPlayerBust();
-//        checkIfDealerBust();
         for (Player player : this.players) {
             if (player.playerHandValueAbleToMakeAceHigh() > dealer.dealerHandValueAbleToMakeAceHigh()) {
-                String winner1 = "Player wins with a hand worth " + player.playerHandValueAbleToMakeAceHigh();
+                String winner1 = player + " wins with a hand worth " + player.playerHandValueAbleToMakeAceHigh();
                 return winner1;
             }else if(player.playerHandValueAbleToMakeAceHigh() == dealer.dealerHandValueAbleToMakeAceHigh()){
                 String draw = "It's a draw!";
@@ -64,7 +70,7 @@ public class Game {
                 String dealerBust = "Dealer is bust, player wins!!";
                 return dealerBust;
             }else if (this.checkIfPlayerBust() == true){
-                    String playerBust = "Player is bust :(";
+                    String playerBust = player + " is bust :(";
                     return playerBust;
                 }else{
                 String winner2 = "Dealer wins with a hand worth " + dealer.dealerHandValueAbleToMakeAceHigh();
@@ -74,6 +80,10 @@ public class Game {
         return winner;
     }
 
+    /**
+     *
+     * @return checks for blackjack (21) and returns a string
+     */
     public String checkForBlackjack() {
         String notBlackjack = "No Blackjack this time.";
         for (Player player : this.players) {
